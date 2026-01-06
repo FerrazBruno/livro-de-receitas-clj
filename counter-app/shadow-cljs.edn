@@ -1,0 +1,20 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[reagent "2.0.1"]]
+
+ :dev-http
+ {8080 "public"}
+
+ :builds
+ {:app                         ;; nome do build
+  {:target :browser            ;; direciona o navegador
+   :output-dir "public/app/js" ;; arquivos de saída js
+   :asset-paths "/app/js"      ;; usa para construir a URL
+   :modules {:main             ;; precisamos de um módulo
+             ;; inicia `counter.app/init` quando carregar o JS
+             {:init-fn counter.app/init}}}}}
